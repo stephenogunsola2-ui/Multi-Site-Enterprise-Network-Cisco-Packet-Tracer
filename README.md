@@ -1,2 +1,3 @@
 # Multi-Site-Enterprise-Network-Cisco-Packet-Tracer
 A multi-site enterprise network built in Cisco Packet Tracer, implementing VLANs, DHCP, inter-VLAN routing, OSPF, WAN connectivity, and end-to-end network troubleshooting.
+The objective of this project is to design, configure, and troubleshoot a multi-site enterprise network using Cisco Packet Tracer. The network consists of a Headquarters (HQ) and Branch office connected through a routed WAN, with VLANs, DHCP, inter-VLAN routing, and OSPF implemented to provide structured network segmentation and communication between sites. The project also focuses on verifying connectivity, analyzing routing information, and troubleshooting issues to ensure reliable end-to-end communication between HQ and Branch networks.
