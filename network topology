@@ -1,0 +1,54 @@
+The network was designed as a two-site enterprise network consisting of a Headquarters (HQ) and a Branch office. The two sites are connected through a point-to-point WAN link between their respective routers.
+
+Headquarters (HQ)
+
+The HQ network contains:
+
+R1 — HQ edge router
+Core Switch — connects the routing infrastructure to the HQ access layer
+Two access switches — provide connectivity for end-user devices
+PCs — represent HQ users
+Server — represents an internal company server
+
+The HQ network is segmented into separate VLANs to organize different types of traffic and improve network management.
+Branch Office
+
+The Branch network contains:
+
+R2 — Branch edge router
+Branch Switch — connects branch users to the network
+PCs/Laptops — represent branch users
+WAN Connectivity
+
+R1 and R2 are directly connected using a point-to-point WAN network:
+
+HQ                         Branch
+
+ R1 ======================= R2
+     10.0.0.0/30
+   R1: 10.0.0.1
+   R2: 10.0.0.2
+Routing
+
+OSPF (Open Shortest Path First) was implemented between R1 and R2 using Area 0.
+
+OSPF allows the routers to dynamically exchange information about their connected networks. This means R1 can learn the Branch networks through R2, while R2 can learn the HQ networks through R1.
+
+For example:
+
+HQ Network
+192.168.20.0/24
+       |
+       R1
+       |
+   OSPF / WAN
+       |
+       R2
+       |
+Branch Network
+192.168.40.0/24
+
+The routing tables were verified using show ip route, where OSPF-learned routes appeared with the O designation.
+This design demonstrates network segmentation, dynamic routing, DHCP, WAN connectivity, and end-to-end communication between multiple sites, while also providing a foundation for future network automation using Python and Netmiko.
+
+This WAN connection provides the path between the HQ and Branch networks.
